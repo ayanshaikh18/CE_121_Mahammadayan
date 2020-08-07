@@ -1,0 +1,21 @@
+-> To generate a strong named key file :-
+
+	> sn -k mykey.snk
+
+-> To create strong named assembly calc.dll from calc.cs :- 
+	
+	> csc /t:library /out:calc.dll /keyfile:mykey.snk calc.cs
+
+-> To deploy calc.dll into GAC :-
+
+	> gacutil -i calc.dll
+	(Run Developer Command Prompt as Administrator.)
+
+-> To create strong named calc.dll of new version from calc_new.cs :-
+
+	> csc /t:library /out:calc.dll /keyfile:mykey.snk calc_new.cs
+
+-> To deploy new version calc.dll into GAC :-
+	
+	> gacutil -i calc.dll
+	(Run Developer Command Prompt as Administrator.)
