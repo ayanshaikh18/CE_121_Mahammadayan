@@ -1,0 +1,9 @@
+-> Commands to generate .netmodule files :-
+	
+	> csc /t:module addition.cs
+	> csc /t:module multiplication.cs
+
+-> Commands to combine .netmodule files into single .dll file with name Calc.dll :-
+
+	> csc /t:library /out:Calc.dll /addmodule:addition.netmodule 
+		/addmodule:multiplication.netmodule
