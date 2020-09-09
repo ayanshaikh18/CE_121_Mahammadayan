@@ -23,35 +23,23 @@
             <h3>All Records : </h3>
             <br />
 
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="sid" DataSourceID="SqlDataSource1">
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="sid" DataSourceID="SqlDataSource1" AllowSorting="True">
                 <Columns>
                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />
                     <asp:BoundField DataField="sid" HeaderText="sid" ReadOnly="True" SortExpression="sid" />
                     <asp:BoundField DataField="name" HeaderText="name" SortExpression="name" />
-                    <asp:BoundField DataField="sem" HeaderText="sem" SortExpression="sem" />
-                    <asp:BoundField DataField="cpi" HeaderText="cpi" SortExpression="cpi" />
-                    <asp:BoundField DataField="contactno" HeaderText="contactno" SortExpression="contactno" />
-                    <asp:BoundField DataField="emailid" HeaderText="emailid" SortExpression="emailid" />
                 </Columns>
             </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [Student] WHERE [sid] = @sid" InsertCommand="INSERT INTO [Student] ([sid], [name], [sem], [cpi], [contactno], [emailid]) VALUES (@sid, @name, @sem, @cpi, @contactno, @emailid)" SelectCommand="SELECT * FROM [Student]" UpdateCommand="UPDATE [Student] SET [name] = @name, [sem] = @sem, [cpi] = @cpi, [contactno] = @contactno, [emailid] = @emailid WHERE [sid] = @sid">
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [Student] WHERE [sid] = @sid" InsertCommand="INSERT INTO [Student] ([sid], [name]) VALUES (@sid, @name)" SelectCommand="SELECT [sid], [name] FROM [Student]" UpdateCommand="UPDATE [Student] SET [name] = @name WHERE [sid] = @sid">
                 <DeleteParameters>
                     <asp:Parameter Name="sid" Type="Int32" />
                 </DeleteParameters>
                 <InsertParameters>
                     <asp:Parameter Name="sid" Type="Int32" />
                     <asp:Parameter Name="name" Type="String" />
-                    <asp:Parameter Name="sem" Type="Int32" />
-                    <asp:Parameter Name="cpi" Type="Double" />
-                    <asp:Parameter Name="contactno" Type="String" />
-                    <asp:Parameter Name="emailid" Type="String" />
                 </InsertParameters>
                 <UpdateParameters>
                     <asp:Parameter Name="name" Type="String" />
-                    <asp:Parameter Name="sem" Type="Int32" />
-                    <asp:Parameter Name="cpi" Type="Double" />
-                    <asp:Parameter Name="contactno" Type="String" />
-                    <asp:Parameter Name="emailid" Type="String" />
                     <asp:Parameter Name="sid" Type="Int32" />
                 </UpdateParameters>
             </asp:SqlDataSource>
