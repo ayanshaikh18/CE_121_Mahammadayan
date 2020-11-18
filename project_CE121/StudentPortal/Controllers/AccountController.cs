@@ -224,7 +224,7 @@ namespace StudentPortal.Controllers
                     using (var client = new SmtpClient())
                     {
                         client.Connect("smtp.gmail.com", 587, false);
-                        client.Authenticate("mahammadayan18@gmail.com", "Ayan786@");
+                        client.Authenticate("mahammadayan18@gmail.com", "*********");
                         client.Send(msg);
                         client.Disconnect(true);
                     }
@@ -264,12 +264,7 @@ namespace StudentPortal.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> DeleteUser()
-        {
-            var user = await userManager.FindByEmailAsync("18ceuog004@ddu.ac.in");
-            await userManager.DeleteAsync(user);
-            return RedirectToAction("login", "account");
-        }
+        
     }
 
 }
